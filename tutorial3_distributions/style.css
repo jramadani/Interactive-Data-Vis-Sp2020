@@ -1,0 +1,41 @@
+body {
+  background-color: #239bd5;
+  color: white;
+  font-family: Lato, sans-serif;
+}
+
+h1 {
+  font-family: Oxygen, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+text {
+  font-size: 16px;
+}
+
+.ratingsbox {
+  background-color: black;
+  opacity: 63%;
+  width: 400px;
+  margin: 0 auto;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+#drop1 {
+  width: 1700px;
+  margin: 0 auto;
+}
+
+#d3-container {
+  width: 1500px;
+  margin: 0 auto;
+}
+
+#rating {
+  font-size: 18px;
+}

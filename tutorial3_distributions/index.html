@@ -3,10 +3,20 @@
     <meta charset="utf-8">
     <title>Interactive Data Visualization Tutorial</title>
     <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300|Oxygen&display=swap" rel="stylesheet">
   </head>
   <body>
-    <label for="dropdown">Filter Selection</label>
-    <select id="dropdown" name="dropdown"></select>
+    <h1 style = "text-align: center;">Comment Culture: Reviews vs. Word Counts on Fanfiction.net</h1>
+    <h3 style = "text-align: center;">This is a subset of data from a late 2018 scrape of the fanfiction archive <a href="https://fanfiction.net"><b>Fanfiction.net</b></a>. <a href="https://www.kaggle.com/metrovirus/fanfictionnet"><i>The full dataset can be found here.</i></a> <br>The subset selected is fanfiction written for the video game series Phoenix Wright: Ace Attorney.</h3>
+    <h4 style = "text-align: center;">Please use the filter selection below to select a rating. This is an indication of the fic's content, and for which ages it is appropriate.</h5>
+    <div class = "ratingsbox"><h4 style = "text-align: center;"><b id = "rating" style = "color:#ffbe56">K:</b> Safe for kids
+      <br> 
+      <b id = "rating" style = "color:#ff8656">K+:</b> Parental guidance suggested <br>
+      <b id = "rating" style = "color:#fff7e9">T:</b> Only appropriate for teens and above <br> 
+      <b id = "rating" style = "color:#e48d00">M:</b> Mature content </h4></div>
+    <br><br>
+    <div id = "drop1"><label for="dropdown">Filter Selection</label>
+    <select id="dropdown" name="dropdown"></select></div>
     <div id="d3-container"> </div>
     <script src="../lib/d3.js"></script>
     <script src="main.js"></script>
