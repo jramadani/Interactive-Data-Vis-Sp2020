@@ -22,14 +22,9 @@ text {
   opacity: 70%;
   width: 300px;
   margin: 0 auto;
-  padding-top: 20px;
-  padding-left: 20px;
-  padding-bottom: 7px;
+  padding: 20px;
   color: rgb(3, 81, 112);
   border-radius: 2px;
-}
-
-#drop1 {
 }
 
 #d3-container {
