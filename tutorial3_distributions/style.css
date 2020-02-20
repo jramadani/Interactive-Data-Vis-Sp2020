@@ -18,21 +18,22 @@ text {
 }
 
 .ratingsbox {
-  background-color: black;
-  opacity: 63%;
-  width: 400px;
+  background-color: gainsboro;
+  opacity: 70%;
+  width: 300px;
   margin: 0 auto;
-  padding-top: 3px;
-  padding-bottom: 3px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-bottom: 7px;
+  color: rgb(3, 81, 112);
+  border-radius: 2em;
 }
 
 #drop1 {
-  width: 1700px;
-  margin: 0 auto;
 }
 
 #d3-container {
-  width: 1500px;
+  width: 1200px;
   margin: 0 auto;
 }
 
