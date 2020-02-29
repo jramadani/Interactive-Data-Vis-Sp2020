@@ -5,10 +5,15 @@
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    Welcome to Interactive Data Visualization Tutorials
+    <h1>Open NYC Council Constituent Services Complaints</h1><br>
     <label for="dropdown">Filter Selection</label>
     <select id="dropdown" name="dropdown"></select>
+    <div id = "d3-container"></div>
+
+    <p>Data randomly sampled from <a href="https://data.cityofnewyork.us/City-Government/NYC-Council-Constituent-Services/9hzi-kbqb">NYC OpenData.</a> 
+      Original dataset was bootstrapped at a sample size of 4000 from all open cases.</p>
     <script src="../lib/d3.js"></script>
+    <script src="https://d3js.org/d3-array.v2.min.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
