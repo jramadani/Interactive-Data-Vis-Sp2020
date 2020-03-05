@@ -116,3 +116,5 @@ function draw() {
     .attr("class", "row")
     .html(d => (d[1] ? `${d[0]}: ${d[1]}` : null));
 }
+
+//Addition to test github pages load fail
