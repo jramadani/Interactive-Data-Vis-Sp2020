@@ -1,0 +1,32 @@
+body {
+  background-color: rgba(146, 219, 207, 0.575);
+  font-family: "Thasadith", Arial, Helvetica, sans-serif;
+}
+a {
+  text-decoration: none;
+}
+h1 {
+  font-family: "Volkhov", sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+#hover-content {
+  /* margin: 0 auto;
+  width: 300px; */
+  position: fixed;
+  margin-top: 300px;
+  margin-left: 1150px;
+  border: 2px dotted white;
+  padding: 5px;
+}
+
+#legend {
+  position: fixed;
+  margin-top: 100px;
+  margin-left: 150px;
+  border: 2px dotted white;
+  padding: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+}

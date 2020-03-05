@@ -2,12 +2,23 @@
   <head>
     <meta charset="utf-8">
     <title>Interactive Data Visualization Tutorial</title>
+    <link href="https://fonts.googleapis.com/css?family=Volkhov|Thasadith&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    Welcome to Interactive Data Visualization Tutorials
-    <div id="d3-container"> </div>
-    <script src="../lib/d3.js"></script>
+    <h1>2019 NYC Shooting Incidents </h1>
+    <div id="hover-content"></div><br>
+    <div id="legend">
+      <p>Did the victim survive?
+      <div><svg width = "50" height = "50"><rect x="10" y="40" width="20" height="20" stroke="#A32528" fill="#A32528" stroke-width="5"/></svg>No</div>
+      <div><svg width = "50" height = "50"><rect x="10" y="40" width="20" height="20" stroke="white" fill="white" stroke-width="5"/></svg>Yes</div></p>
+    </div>
+    <div id="d3-container"></div>
+    <div><p style="text-align: center;"><a href="https://data.cityofnewyork.us/Public-Safety/NYPD-Shooting-Incident-Data-Year-To-Date-/5ucz-vwe8">Data from NYC OpenData.</a> Each point is a reported shooting from 2019.</p></div>
+    <!-- <script src="../lib/d3.js"></script> -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="main.js"></script>
+    <script src="https://d3js.org/d3-array.v1.min.js"></script>
+<script src="https://d3js.org/d3-geo.v1.min.js"></script>
   </body>
 </html>
