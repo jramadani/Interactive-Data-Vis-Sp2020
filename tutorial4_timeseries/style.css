@@ -1,0 +1,22 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #eecbb02c;
+  color: #259d98;
+  font-size: 18px;
+}
+
+h1 {
+  font-family: "Questrial", sans-serif;
+  text-align: center;
+  color: #259d98;
+}
+
+a {
+  text-decoration: none;
+  color: #035b58;
+}
+
+#container1 {
+  margin: 0 auto;
+  width: 1250px;
+}

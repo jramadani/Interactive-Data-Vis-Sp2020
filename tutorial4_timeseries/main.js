@@ -29,7 +29,6 @@ d3.json("../data/OPENcouncildata.json")
     }))
   )
   .then(formattedData => {
-    console.log("formattedData", formattedData);
     state.data = formattedData;
     init();
   });
@@ -54,8 +53,7 @@ function init() {
   const selectElement = d3.select("#dropdown").on("change", function() {
     // `this` === the selectElement
     // 'this.value' holds the dropdown value a user just selected
-    state.selection = this.value; // + UPDATE STATE WITH YOUR SELECTED VALUE
-    console.log("new value is", this.value);
+    state.selectedCType = this.value; // + UPDATE STATE WITH YOUR SELECTED VALUE
     draw(); // re-draw the graph based on this new selection
   });
 
@@ -89,7 +87,7 @@ function init() {
     .attr("x", "50%")
     .attr("dy", "3em")
     .text("Year")
-    .attr("fill", "black");
+    .attr("fill", "#259D98");
 
   svg
     .append("g")
@@ -97,12 +95,13 @@ function init() {
     .attr("transform", `translate(${margin.left},0)`)
     .call(yAxis)
     .append("text")
-    .attr("class", "axis-label")
-    .attr("y", "50%")
-    .attr("dx", "-3em")
-    .attr("writing-mode", "vertical-lr")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0 - margin.left / 2)
+    .attr("x", 0 - height / 2)
+    .attr("dy", "1em")
+    .style("text-anchor", "middle")
     .text("Complaints")
-    .attr("fill", "black");
+    .attr("fill", "#259D98");
 
   draw(); // calls the draw function
 }
@@ -111,24 +110,18 @@ function init() {
 // we call this everytime there is an update to the data/state
 function draw() {
   // + FILTER DATA BASED ON STATE
-
-  //note to self here: we're filtering based on complaint data
   let filteredData = [];
   if (state.selectedCType !== null) {
     filteredData = state.data.filter(d => d.ctype === state.selectedCType);
   }
 
-  console.log("filteredData", filteredData);
-
   let nestedData = d3
     .nest()
-    // .key(function(d) {
-    //   return d.OPENYEAR;
-    // })
-    .key(d => d.year)
+    .key(function(d) {
+      return d.year;
+    })
     .entries(filteredData);
 
-  console.log("nestedData", nestedData);
   // + UPDATE SCALE(S), if needed
   yScale.domain([0, d3.max(nestedData, d => d.values.length)]);
 
@@ -139,7 +132,6 @@ function draw() {
     .call(yAxis.scale(yScale)); // this updates the yAxis' scale to be our newly updated one
 
   // + DRAW CIRCLES, if you decide to
-
   // const dot = svg
   //   .selectAll(".dot")
   //   .data(nestedData, d => d.key) // use `d.year` as the `key` to match between HTML and data elements
@@ -175,12 +167,40 @@ function draw() {
   //   );
 
   // + DRAW LINE AND AREA
-  const lineFunc = d3
-    .line()
-    .x(d => xScale(new Date(d.key)))
-    .y(d => yScale(d.values.length));
+  // const lineFunc = d3
+  //   .line()
+  //   .x(d => xScale(new Date(d.key)))
+  //   .y(d => yScale(d.values.length));
 
-  const line = svg
+  // const line = svg
+  //   .selectAll("path.trend")
+  //   .data([nestedData])
+  //   .join(
+  //     enter =>
+  //       enter
+  //         .append("path")
+  //         .attr("class", "trend")
+  //         .attr("stroke", "blue")
+  //         .attr("fill", "transparent")
+  //         .attr("opacity", 0),
+  //     update => update,
+  //     exit => exit.remove()
+  //   )
+  //   .call(selection =>
+  //     selection
+  //       .transition()
+  //       .duration(1000)
+  //       .attr("opacity", 1)
+  //       .attr("d", d => lineFunc(d))
+  //   );
+
+  const areaFunc = d3
+    .area()
+    .x(d => xScale(new Date(d.key)))
+    .y1(d => yScale(d.values.length))
+    .y0(d => yScale(0));
+
+  const area = svg
     .selectAll("path.trend")
     .data([nestedData])
     .join(
@@ -188,8 +208,8 @@ function draw() {
         enter
           .append("path")
           .attr("class", "trend")
-          .attr("stroke", "magenta")
-          .attr("opacity", 1),
+          .attr("fill", "#59C4C0")
+          .attr("opacity", 0),
       update => update,
       exit => exit.remove()
     )
@@ -198,6 +218,6 @@ function draw() {
         .transition()
         .duration(1000)
         .attr("opacity", 1)
-        .attr("d", d => lineFunc(d))
+        .attr("d", d => areaFunc(d))
     );
 }

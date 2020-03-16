@@ -3,15 +3,15 @@
     <meta charset="utf-8">
     <title>Interactive Data Visualization Tutorial</title>
     <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css?family=Questrial|Roboto&display=swap" rel="stylesheet">
   </head>
   <body>
     <h1>Open NYC Council Constituent Services Complaints</h1><br>
-    <label for="dropdown">Filter Selection</label>
+    <div id="container1"><label for="dropdown">Filter Selection</label>
     <select id="dropdown" name="dropdown"></select>
     <div id = "d3-container"></div>
-
-    <p>Data randomly sampled from <a href="https://data.cityofnewyork.us/City-Government/NYC-Council-Constituent-Services/9hzi-kbqb">NYC OpenData.</a> 
-      Original dataset was bootstrapped at a sample size of 4000 from all open cases.</p>
+    <p style="text-align: center;">Data randomly sampled from <a href="https://data.cityofnewyork.us/City-Government/NYC-Council-Constituent-Services/9hzi-kbqb">NYC OpenData.</a> 
+      Original dataset was bootstrapped at a sample size of 4000 from all open cases.</p>  </div>
     <script src="../lib/d3.js"></script>
     <script src="https://d3js.org/d3-array.v2.min.js"></script>
     <script src="main.js"></script>
